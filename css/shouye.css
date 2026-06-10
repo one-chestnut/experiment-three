@@ -1,0 +1,652 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;/* 设置默认的字体样式，确保所有元素都使用系统字体或自定义字体 */
+    }
+
+    body {
+      background-color: #f0f9f0;
+      color: #2c4a3e;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;/* 放弃自身的颜色设定，继承父元素的文本颜色 */
+    }
+    
+   .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    /* 顶部导航栏样式 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 18px 0 12px;
+      border-bottom: 1px solid rgba(80, 140, 110, 0.15);
+    }
+
+    /* 导航栏logo区域 */
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      background: #5fba8a;
+      color: white;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      color: #2e7d5e;
+    }
+
+    /* 导航栏链接区域 */
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-weight: 500;
+      color: #3b6b56;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #1d8b5e;
+    }
+
+    /* 导航栏搜索栏区域 */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 40px;
+      padding: 4px 16px 4px 20px;
+      box-shadow: 0 2px 8px rgba(90, 150, 120, 0.08);
+      border: 1px solid #d2eadb;
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 8px 6px 8px 0;
+      width: 200px;
+      font-size: 0.95rem;
+    }
+
+    .search-bar input::placeholder {
+      color: #a3c2b2;
+    }
+
+    .search-bar span {
+      color: #6aa185;
+      font-size: 1.1rem;
+    }
+
+    /* 导航栏用户操作区域 */
+    .user-actions {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .login-btn, .reg-btn, .logout-btn {
+      background: transparent;
+      border: 1px solid #bddccc;
+      padding: 5px 14px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: #2e7d5e;
+      transition: 0.2s;
+    }
+
+    .login-btn:hover, .reg-btn:hover {
+      background: #e2f3e8;
+    }
+    .user-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2e7d5e;
+    }
+
+    .avatar-icon {
+      width: 34px;
+      height: 34px;
+      background: #b8dcc8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    /* 轮播图区域 */
+    .carousel-section {
+      margin: 24px 0 28px;
+      position: relative;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(60, 120, 90, 0.12);
+      background: #d3ecde;
+    }
+
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.4s ease;
+      height: 475px;
+    }
+
+    /* 轮播图滑块区域 */
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #cde3d5;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 轮播图按钮区域 */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      color: #1d4d38;
+      cursor: pointer;/* 当鼠标悬停在元素上时，将箭头光标变为手指光标 */
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      z-index: 10;/* 确保按钮在轮播图前方显示，避免被轮播图遮挡 */
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .carousel-btn:hover {
+      background: white;
+      color: #1a704b;
+    }
+
+    .prev-btn {
+      left: 16px;
+    }
+
+    .next-btn {
+      right: 16px;
+    }
+
+    /* 轮播图点区域 */
+    .carousel-dots {
+      position: absolute;
+      bottom: 18px;
+      right: 30px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .dot.active {
+      background: #ffffff;
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(70, 170, 120, 0.3);
+    }
+
+    /* 主内容区域样式 */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+      margin-top: 12px;
+    }
+
+    /* 主内容区域左侧列样式 */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1d553f;
+      letter-spacing: 0.5px;
+    }
+
+    .section-header a {
+      font-size: 0.9rem;
+      color: #508d71;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    /* 精选歌单区域*/
+    .playlist-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(80, 140, 100, 0.06);
+      transition: 0.2s ease;
+      border: 1px solid #dff0e5;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);/* 当鼠标悬停在元素上时，元素向上移动5px */
+      box-shadow: 0 12px 24px rgba(60, 130, 90, 0.12);/* 阴影：水平偏移 垂直偏移 模糊半径 不透明度 */
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #d6e9dd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;/* 隐藏溢出内容，防止内容超出容器 */
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;/* 图片等比例缩放，保持图片比例 */
+    }
+
+    .card-info {
+      padding: 12px 12px 16px;
+    }
+
+    .card-info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .card-info p {
+      font-size: 0.8rem;
+      color: #608b74;
+    }
+
+    /* 推荐新歌区域 */
+    .song-list {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 28px;
+      border: 1px solid #dff0e5;
+      overflow: hidden;
+    }
+
+    .song-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 18px;
+      border-bottom: 1px solid #eef6ef;
+      transition: background 0.15s;/* 背景颜色过渡效果 */
+      cursor: pointer;
+    }
+
+    .song-item:last-child {
+      border-bottom: none;
+    }
+
+    .song-item:hover {
+      background: #f2fcf5;
+    }
+
+    .song-index {
+      width: 28px;
+      font-weight: 500;
+      color: #5b8b73;
+      font-size: 0.95rem;
+    }
+
+    .song-info {
+      flex: 1;
+    }
+
+    .song-info .title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1f4636;
+    }
+
+    .song-info .artist {
+      font-size: 0.8rem;
+      color: #709683;
+    }
+
+    .song-action span {
+      color: #669e83;
+      font-size: 1.1rem;
+      padding: 6px;
+    }
+
+    /* 收藏按钮区域 */
+    .fav-heart {
+      font-size: 1.2rem;
+      margin-left: 12px;
+      cursor: pointer;
+      color: #cddcd2;
+      transition: 0.1s;
+    }
+    .fav-heart.liked {
+      color: #e85d75;
+    }
+
+    /* 热门歌手区域 */
+    .artist-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .artist-item {
+      text-align: center;
+      width: 90px;
+      cursor: pointer;
+    }
+
+    .artist-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #cbe0d3;
+      overflow: hidden;
+      margin-bottom: 6px;
+      border: 2px solid white;
+      box-shadow: 0 4px 8px rgba(0, 30, 10, 0.05);
+    }
+
+    .artist-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .artist-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f4f3c;
+    }
+
+    /* 主内容区域右侧列样式 */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    /* 热门榜单区域 */
+    .ranking-list {
+      background: white;
+      border-radius: 28px;
+      padding: 8px 4px 8px 16px;
+      border: 1px solid #dff0e5;
+    }
+
+    .rank-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 8px;
+      border-bottom: 1px solid #eef6ef;
+      cursor: pointer;
+    }
+
+    .rank-item:last-child {
+      border-bottom: none;
+    }
+
+    .rank-item:hover {
+      background: #f2fcf5;
+    }
+
+    .rank-number {
+      width: 30px;
+      font-weight: 700;
+      color: #3c7a5e;
+    }
+
+    .rank-info {
+      flex: 1;
+    }
+
+    .rank-info .r-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1d4a37;
+    }
+
+    .rank-info .r-desc {
+      font-size: 0.7rem;
+      color: #719b87;
+    }
+
+    /* 推荐MV区域 */
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .mv-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #dff0e5;
+      cursor: pointer;
+    }
+
+    .mv-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .mv-info {
+      padding: 10px 8px 12px;
+    }
+
+    .mv-info h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* 我的音乐区域 */
+    .my-music-section {
+      background: white;
+      border-radius: 28px;
+      border: 1px solid #dff0e5;
+      overflow: hidden;
+    }
+
+    /* 空提示区域 */
+    .empty-tip {
+      padding: 40px;
+      text-align: center;
+      color: #90b4a0;
+    }
+
+    /* 登录/注册弹窗区域 */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(40, 70, 55, 0.6);
+      backdrop-filter: blur(4px);/* 背景：半透明模糊效果 */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-card {
+      background: white;
+      border-radius: 36px;
+      max-width: 380px;
+      width: 90%;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+    }
+    .modal-card h3 {
+      color: #1f553f;
+      margin-bottom: 20px;
+    }
+    .modal-card input {
+      width: 100%;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      border: 1px solid #cde0d3;
+      border-radius: 48px;
+      outline: none;
+      font-size: 0.95rem;
+    }
+    .modal-card input:focus {/* 当输入框获得焦点时，输入框的边框颜色改变 */
+      border-color: #5fba8a;
+    }
+    .modal-card button {
+      background: #5fba8a;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      border-radius: 48px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .modal-close {
+      margin-top: 12px;
+      background: none;
+      color: #608b74;
+      border: 1px solid #cde0d3;
+    }
+    .switch-modal {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: #508d71;
+      cursor: pointer;
+    }
+
+    /* 错误提示区域 */
+    .error-msg {
+      color: #e85d75;
+      font-size: 0.75rem;
+      text-align: left;
+      margin: -8px 0 8px 8px;
+      display: none;
+    }
+
+    /* 底部区域样式 */
+    .footer {
+      margin-top: 60px;
+      padding: 30px 0 20px;
+      border-top: 1px solid #d3e8db;
+      text-align: center;
+      color: #5a826e;
+      font-size: 0.8rem;
+    }
+
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+    .footer-icons span {
+      font-size: 1.6rem;
+      color: #579474;
+      opacity: 0.6;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 920px) {/* 当屏幕宽度小于920px时，调整布局 */
+      .main-grid { grid-template-columns: 1fr; }
+      .playlist-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .playlist-cards { grid-template-columns: 1fr; }
+    }
