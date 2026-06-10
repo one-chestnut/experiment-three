@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>小清新 · 音乐播放平台</title>
+  <link rel="stylesheet" href="./css/shouye.css">
+</head>
+<body>
+<div class="container">
+
+<!-- 顶部导航栏 -->
+  <header class="top-nav"><!-- header：头部区域 -->
+
+    <!-- logo区域 -->
+    <div class="logo-area">
+      <div class="logo-icon">🎧</div>
+      <span class="logo-text">轻音 · 绿</span>
+    </div>
+
+    <!-- 导航链接区域 -->
+    <div class="nav-links">
+      <a href="#" data-page="home">精选</a><!-- 当用户点击"精选"时，js会读取 data-page="home" 跳转到相对应页面-->
+      <a href="#" data-page="newsong">新歌</a>
+      <a href="#" data-page="rank">榜单</a>
+      <a href="#" data-page="mv">MV</a>
+      <a href="#" data-page="singer">歌手</a>
+      <a href="#" data-page="mymusic">我的音乐</a>
+      <a href="#">24215220208-李烨婷</a>
+    </div>
+
+    <!-- 搜索栏区域 -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="搜索音乐、歌手" /><!--text：文本框 -->
+      <span>🔍</span>
+    </div>
+
+    <!-- 用户操作区域 -->
+    <div class="user-actions" id="userActions">
+      <div class="user-info" id="userInfo"></div><!--未登录时：填"登录"和"注册"按钮 ；已登录时：填"用户名"和"退出"按钮 -->
+    </div>
+  </header>
+
+<!-- 轮播图区域 -->
+  <div class="carousel-section">
+
+    <!--原理：用户只看到一个窗口，5张照片排成1排移动  -->
+    <div class="carousel-wrapper">
+      <div class="carousel-slides" id="carouselSlides">
+        <div class="slide"><img src="./images/banner1.png" alt="banner1"></div>
+        <div class="slide"><img src="./images/banner2.png" alt="banner2"></div>
+        <div class="slide"><img src="./images/banner3.png" alt="banner3"></div>
+        <div class="slide"><img src="./images/banner4.png" alt="banner4"></div>
+        <div class="slide"><img src="./images/banner5.png" alt="banner5"></div>
+      </div>
+
+      <!-- 轮播图按钮区域 -->
+      <button class="carousel-btn prev-btn" id="prevBtn">❮</button>
+      <button class="carousel-btn next-btn" id="nextBtn">❯</button>
+
+      <!-- 轮播图点区域 -->
+      <div class="carousel-dots" id="carouselDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+        <span class="dot" data-index="4"></span>
+      </div>
+    </div>
+  </div>
+
+<!-- 主页内容区域 -->
+  <div id="pageContent"></div>
+
+<!-- 底部导航栏 -->
+  <footer class="footer"><!-- footer：底部区域 -->
+    <div class="footer-icons"><span>🎧</span><span>🍏</span><span>📻</span><span>🎶</span></div>
+    <div class="footer-links"><a href="#">关于我们</a><a href="#">用户协议</a><a href="#">隐私政策</a><a href="#">帮助中心</a></div>
+    <p>© 2026 轻音绿 · 清新音乐平台</p>
+  </footer>
+</div>
+
+
+<!-- 登录注册弹窗 -->
+<div id="authModal" class="modal"><!-- modal：模态框 -->
+  <div class="modal-card">
+    <h3 id="modalTitle">登录轻音绿</h3>
+    <input type="text" id="loginUsername" placeholder="用户名" autocomplete="off"><!--autocomplete：off：不自动填充或记录用户名 -->
+    <div id="usernameError" class="error-msg"></div>
+    <input type="password" id="loginPassword" placeholder="密码"><!-- password： 密码框 -->
+    <div id="passwordError" class="error-msg"></div>
+    <button id="submitAuthBtn">登录</button>
+    <button class="modal-close" id="closeModalBtn">取消</button>
+    <div id="switchMode" class="switch-modal">还没有账号？ 立即注册</div>
+  </div>
+</div>
+
+<script src="./js/shouye.js"></script>
+</body>
+</html>
